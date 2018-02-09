@@ -2,16 +2,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
 import java.util.concurrent.TimeUnit;
-import java.util.Date;
-import java.io.File;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
-import static org.openqa.selenium.OutputType.*;
 
 public class LoginTrelloTest {
     FirefoxDriver wd;
@@ -24,17 +19,39 @@ public class LoginTrelloTest {
     
     @Test
     public void LoginTrelloTest() {
-        wd.get("https://trello.com/logged-out");
-        wd.findElement(By.linkText("Log In")).click();
-        wd.findElement(By.id("user")).click();
-        wd.findElement(By.id("user")).clear();
-        wd.findElement(By.id("user")).sendKeys("alenik_87@mail.ru");
-        wd.findElement(By.id("password")).click();
-        wd.findElement(By.id("password")).clear();
-        wd.findElement(By.id("password")).sendKeys("alenik87");
+        //openSite
+        openSite();
+        //clickLogInButton
+        clickLogInButton();
+        enterUserName("alenik_87@mail.ru");
+        enterPassword("alenik87");
+        confirmLogInButton();
+    }
+
+    private void confirmLogInButton() {
         wd.findElement(By.id("login")).click();
     }
-    
+
+    private void enterPassword(String pwd) {
+        wd.findElement(By.id("password")).click();
+        wd.findElement(By.id("password")).clear();
+        wd.findElement(By.id("password")).sendKeys(pwd);
+    }
+
+    private void enterUserName(String userName) {
+        wd.findElement(By.id("user")).click();
+        wd.findElement(By.id("user")).clear();
+        wd.findElement(By.id("user")).sendKeys(userName);
+    }
+
+    private void clickLogInButton() {
+        wd.findElement(By.linkText("Log In")).click();
+    }
+
+    private void openSite() {
+        wd.get("https://trello.com");
+    }
+
     @AfterMethod
     public void tearDown() {
         wd.quit();
