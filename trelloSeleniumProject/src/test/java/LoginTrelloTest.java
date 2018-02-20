@@ -8,7 +8,7 @@ public class LoginTrelloTest extends TestBase {
         openSite("https://trello.com");
     }
 
-    @Test(priority = 1)
+    @Test
     public void LoginTrelloTest() {
         clickLogInButton();
         enterUserName("alenik_871@yopmail.com");
@@ -17,24 +17,4 @@ public class LoginTrelloTest extends TestBase {
         logout();
     }
 
-
-    @Test(priority = 2)
-    public void LoginTrelloTestNotValidMail() {
-        openSite("https://trello.com");
-        clickLogInButton();
-        enterUserName("1");
-        enterPassword("12345.com");
-        confirmLogInButton();
-
-    }
-
-    @Test
-    public void LoginTrelloEmptiFieldTest() {
-        openSite("https://trello.com");
-        clickLogInButton();
-        enterUserName("");
-        enterPassword("");
-        confirmLogInButton();
-
-    }
 }
