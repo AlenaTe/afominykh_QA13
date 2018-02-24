@@ -23,7 +23,7 @@ public class ApplicationManager {
 
     public void init() {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
         openSite("https://trello.com");
     }
 
