@@ -160,11 +160,10 @@ public class ApplicationManager {
         wd.findElement(By.xpath("//html//tr[2]/td[8]")).click();
     }
 
-    public void renameFirstName(String contactFirstName) {
-
+    public void renameFirstName() {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys(contactFirstName);
+        wd.findElement(By.name("firstname")).sendKeys("NewFirstName");
     }
 
     public void updateContact() {
