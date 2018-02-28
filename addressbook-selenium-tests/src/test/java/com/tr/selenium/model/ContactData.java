@@ -1,44 +1,114 @@
 package com.tr.selenium.model;
 
 public class ContactData {
-    private final String contactFirstName;
-    private final String contactMiddleName;
-    private final String contactLastName;
-    private final String contactNickname;
-    private final String contactTitle;
-    private final String contactCompany;
-    private final String contactAddress;
-    private final String contactTelephoneHome;
-    private final String contactTelehoneMobile;
-    private final String contactTelehoneWork;
-    private final String contactTelehoneFax;
-    private final String contactEmail;
-    private final String contactEmail2;
-    private final String contactEmail3;
-    private final String contactHomePage;
-    private final String contactAddress2;
-    private final String contactTelephoneHome2;
-    private final String contactNotes;
+    private String contactFirstName;
+    private String contactMiddleName;
+    private String contactLastName;
+    private String contactNickname;
+    private String contactTitle;
+    private String contactCompany;
+    private String contactAddress;
+    private String contactTelephoneHome;
+    private String contactTelephoneMobile;
+    private String contactTelephoneWork;
+    private String contactTelephoneFax;
+    private String contactEmail;
+    private String contactEmail2;
+    private String contactEmail3;
+    private String contactHomePage;
+    private String contactAddress2;
+    private String contactTelephoneHome2;
+    private String contactNotes;
 
-    public ContactData(String contactFirstName, String contactMiddleName, String contactLastName, String contactNickname, String contactTitle, String contactCompany, String contactAddress, String contactTelephoneHome, String contactTelehoneMobile, String contactTelehoneWork, String contactTelehoneFax, String contactEmail, String contactEmail2, String contactEmail3, String contactHomePage, String contactAddress2, String contactTelephoneHome2, String contactNotes) {
+
+    public ContactData withContactFirstName(String contactFirstName) {
         this.contactFirstName = contactFirstName;
+        return this;
+    }
+
+    public ContactData withContactMiddleName(String contactMiddleName) {
         this.contactMiddleName = contactMiddleName;
+        return this;
+    }
+
+    public ContactData withContactLastName(String contactLastName) {
         this.contactLastName = contactLastName;
+        return this;
+    }
+
+    public ContactData withContactNickname(String contactNickname) {
         this.contactNickname = contactNickname;
+        return this;
+    }
+
+    public ContactData withContactTitle(String contactTitle) {
         this.contactTitle = contactTitle;
+        return this;
+    }
+
+    public ContactData withContactCompany(String contactCompany) {
         this.contactCompany = contactCompany;
+        return this;
+    }
+
+    public ContactData withContactAddress(String contactAddress) {
         this.contactAddress = contactAddress;
+        return this;
+    }
+
+    public ContactData withContactTelephoneHome(String contactTelephoneHome) {
         this.contactTelephoneHome = contactTelephoneHome;
-        this.contactTelehoneMobile = contactTelehoneMobile;
-        this.contactTelehoneWork = contactTelehoneWork;
-        this.contactTelehoneFax = contactTelehoneFax;
+        return this;
+    }
+
+    public ContactData withContactTelephoneMobile(String contactTelephoneMobile) {
+        this.contactTelephoneMobile = contactTelephoneMobile;
+        return this;
+    }
+
+    public ContactData withContactTelephoneWork(String contactTelephoneWork) {
+        this.contactTelephoneWork = contactTelephoneWork;
+        return this;
+    }
+
+    public ContactData withContactTelephoneFax(String contactTelephoneFax) {
+        this.contactTelephoneFax = contactTelephoneFax;
+        return this;
+    }
+
+    public ContactData withContactEmail(String contactEmail) {
         this.contactEmail = contactEmail;
+        return this;
+    }
+
+    public ContactData withContactEmail2(String contactEmail2) {
         this.contactEmail2 = contactEmail2;
+        return this;
+    }
+
+    public ContactData withContactEmail3(String contactEmail3) {
         this.contactEmail3 = contactEmail3;
+        return this;
+    }
+
+    public ContactData withContactHomePage(String contactHomePage) {
         this.contactHomePage = contactHomePage;
+        return this;
+    }
+
+    public ContactData withContactAddress2(String contactAddress2) {
         this.contactAddress2 = contactAddress2;
+        return this;
+    }
+
+    public ContactData withContactTelephoneHome2(String contactTelephoneHome2) {
         this.contactTelephoneHome2 = contactTelephoneHome2;
+        return this;
+    }
+
+    public ContactData withContactNotes(String contactNotes) {
         this.contactNotes = contactNotes;
+        return this;
     }
 
     public String getContactFirstName() {
@@ -74,15 +144,15 @@ public class ContactData {
     }
 
     public String getContactTelehoneMobile() {
-        return contactTelehoneMobile;
+        return contactTelephoneMobile;
     }
 
-    public String getContactTelehoneWork() {
-        return contactTelehoneWork;
+    public String getContactTelephoneWork() {
+        return contactTelephoneWork;
     }
 
-    public String getContactTelehoneFax() {
-        return contactTelehoneFax;
+    public String getContactTelephoneFax() {
+        return contactTelephoneFax;
     }
 
     public String getContactEmail() {
