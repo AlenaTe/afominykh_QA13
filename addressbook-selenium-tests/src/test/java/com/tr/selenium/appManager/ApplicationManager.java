@@ -29,11 +29,11 @@ public class ApplicationManager {
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         contactHelper = new ContactHelper(wd);
-        groupHelper = new GroupHelper(wd);
         sessionHelper = new SessionHelper(wd);
-        navigationHelper = new NavigationHelper(wd);
         openSite();
         sessionHelper.logIn("admin", "secret");
+        navigationHelper = new NavigationHelper(wd);
+        groupHelper = new GroupHelper(wd);
     }
 
 
