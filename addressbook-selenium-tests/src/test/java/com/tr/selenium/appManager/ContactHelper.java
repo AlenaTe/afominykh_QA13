@@ -2,11 +2,12 @@ package com.tr.selenium.appManager;
 
 import com.tr.selenium.model.ContactData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ContactHelper extends HelperBase{
 
-    public ContactHelper(FirefoxDriver wd) {
+    public ContactHelper(WebDriver wd) {
         super(wd);
     }
 
@@ -35,6 +36,10 @@ public class ContactHelper extends HelperBase{
         click(By.name("submit"));
     }
 
+    public void goToAddNewContactPage() {
+        click(By.cssSelector("a[href='edit.php']"));
+    }
+
     public void selectContact() {
         click(By.name("selected[]"));
     }
@@ -58,5 +63,17 @@ public class ContactHelper extends HelperBase{
 
     public int getContactCount() {
         return wd.findElements(By.name("selected[]")).size();
+    }
+
+    public void createContact() {
+        goToAddNewContactPage();
+        fillContactForm(new ContactData()
+                .withContactLastName("Test")
+                .withContactFirstName("Test"));
+        enterContactCreation();
+    }
+
+    public boolean isContactExist() {
+        return isElementPresent(By.name("selected[]"));
     }
 }
