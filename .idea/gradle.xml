@@ -7,7 +7,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$/TrelloTests" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/TrelloTests" />
+            <option value="$PROJECT_DIR$/trelloTests" />
           </set>
         </option>
         <option name="useAutoImport" value="true" />
