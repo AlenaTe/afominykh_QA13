@@ -1,5 +1,7 @@
 package com.tr.selenium.model;
 
+import java.io.File;
+
 public class ContactData {
     private String contactFirstName;
     private String contactMiddleName;
@@ -19,7 +21,28 @@ public class ContactData {
     private String contactAddress2;
     private String contactTelephoneHome2;
     private String contactNotes;
+    String group;
+    File photo;
 
+    public File getPhoto() {
+        return photo;
+    }
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
+        return this;
+    }
+
+
+
+    public String getGroup() {
+        return group;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
 
     public ContactData withContactFirstName(String contactFirstName) {
         this.contactFirstName = contactFirstName;

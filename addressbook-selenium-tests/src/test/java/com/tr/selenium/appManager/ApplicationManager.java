@@ -8,6 +8,10 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.BrowserType;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -17,13 +21,18 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private NavigationHelper navigationHelper;
     private String browser;
+    Properties properties;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
     }
 
 
-    public void start() {
+    public void start() throws IOException {
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(String.format("src/test/resources/%s.properties", target)));
+
 //        String browser = BrowserType.CHROME;
         if(browser.equals(BrowserType.FIREFOX)){
             wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
@@ -35,8 +44,8 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         contactHelper = new ContactHelper(wd);
         sessionHelper = new SessionHelper(wd);
-        openSite("http://localhost/addressbook/");
-        sessionHelper.logIn("admin", "secret");
+        openSite(properties.getProperty("web.baseUrl"));//("http://localhost/addressbook/");
+        sessionHelper.logIn(properties.getProperty("web.adminLogin"),properties.getProperty("web.adminPwd"));//"admin", "secret");
         navigationHelper = new NavigationHelper(wd);
         groupHelper = new GroupHelper(wd);
     }
@@ -67,5 +76,10 @@ public class ApplicationManager {
 
     public NavigationHelper getNavigationHelper(){
         return navigationHelper;
+    }
+
+    public void getBrowserLog(){
+        System.out.println(wd.manage().logs().getAvailableLogTypes());
+        wd.manage().logs().get("browser").forEach(l -> System.out.println(l));
     }
 }

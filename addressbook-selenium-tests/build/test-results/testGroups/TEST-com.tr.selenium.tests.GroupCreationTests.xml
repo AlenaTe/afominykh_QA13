@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tr.selenium.tests.GroupCreationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-03-13T17:08:21" hostname="Home-PC" time="1.563">
+  <properties/>
+  <testcase name="groupCreationTest" classname="com.tr.selenium.tests.GroupCreationTests" time="1.563"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

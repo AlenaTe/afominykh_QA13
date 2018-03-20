@@ -7,10 +7,19 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     FirefoxDriver wd;
+    Properties properties;
+
+    public ApplicationManager() {
+        properties = new Properties();
+    }
+
 
     public static boolean isAlertPresent(FirefoxDriver wd) {
         try {
@@ -21,10 +30,12 @@ public class ApplicationManager {
         }
     }
 
-    public void init() {
+    public void init() throws IOException {
+        String target = System.getProperty("target","local");
+        properties.load(new FileReader(String.format("src/test/resources/%s.properties",target)));
         wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
         wd.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
-        openSite("https://trello.com");
+        openSite(properties.getProperty("web.baseURL"));//("https://trello.com");
     }
 
     public void returnToHomePage() {
@@ -73,13 +84,15 @@ public class ApplicationManager {
         wd.findElement(By.id("login")).click();
     }
 
-    public void fillLogInForm() {
+    public void fillLogInForm(String login, String pwd) {
+
+
         wd.findElement(By.id("user")).click();
         wd.findElement(By.id("user")).clear();
-        wd.findElement(By.id("user")).sendKeys("alenik_871@yopmail.com");
+        wd.findElement(By.id("user")).sendKeys(login);
         wd.findElement(By.id("password")).click();
         wd.findElement(By.id("password")).clear();
-        wd.findElement(By.id("password")).sendKeys("12345.com");
+        wd.findElement(By.id("password")).sendKeys(pwd);
     }
 
     public void clickLogInButton() {

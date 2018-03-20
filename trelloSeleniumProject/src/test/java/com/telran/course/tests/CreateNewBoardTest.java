@@ -10,7 +10,7 @@ public class CreateNewBoardTest extends TestBase{
 //        System.out.println(app.wd.getCurrentUrl());
 //        Assert.assertEquals(app.wd.getCurrentUrl(), "https://trello.com/");
         app.clickLogInButton();
-        app.fillLogInForm();
+        app.fillLogInForm("alenik_871@yopmail.com", "12345.com");
         app.logIn();
         app.clickCreateNewBoardInBodySite();
         app.fillBoardTitle("Test");
